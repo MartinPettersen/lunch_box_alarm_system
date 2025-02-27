@@ -1,0 +1,20 @@
+from microbit import *
+import radio
+
+radio.config(group=23)
+radio.on()
+
+test = False
+
+
+while True:
+    light = display.read_light_level()
+    #display.scroll(display.read_light_level())
+
+    if light > 60:
+        #display.show(str(movement))
+        test = True
+        #sleep(3000)
+        radio.send("Alarm")
+        
+    
